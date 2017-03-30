@@ -1,5 +1,6 @@
 package com.daizhen;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -17,6 +18,7 @@ import com.daizhen.storage.StorageService;
 
 @SpringBootApplication
 @EnableScheduling
+@MapperScan(basePackages = "com.daizhen.mapper")
 @EnableConfigurationProperties(StorageProperties.class)
 public class MicroserviceBaseApplication {
 

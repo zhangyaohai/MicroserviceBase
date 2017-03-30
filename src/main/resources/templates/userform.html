@@ -1,0 +1,52 @@
+<html>
+    <body>
+        <form action="#" th:action="@{/formtest/dosave}" th:object="${userInfo}" method="post">
+        	<input type="hidden" th:field="*{id}" />
+            <table>
+                <tr>
+                    <td>用户名:</td>
+                    <td><input type="text" th:field="*{username}" /></td>
+                    <td th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Name Error</td>
+                </tr>
+                <tr>
+                    <td>密码:</td>
+                    <td><input type="text" th:field="*{password}" /></td>
+                    <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Age Error</td>
+                </tr>
+                <tr>
+                    <td>年龄:</td>
+                    <td><input type="text" th:field="*{age}" /></td>
+                    <td th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</td>
+                </tr>
+                <tr>
+                    <td>用户类型:</td>
+                    <td><input type="text" th:field="*{usertype}" /></td>
+                    <td th:if="${#fields.hasErrors('usertype')}" th:errors="*{usertype}">Age Error</td>
+                </tr>
+                <tr>
+                    <td>是否有效:</td>
+                    <td><input type="text" th:field="*{enabled}" /></td>
+                    <td th:if="${#fields.hasErrors('enabled')}" th:errors="*{enabled}">Age Error</td>
+                </tr>
+                <tr>
+                    <td>QQ:</td>
+                    <td><input type="text" th:field="*{qq}" /></td>
+                    <td th:if="${#fields.hasErrors('qq')}" th:errors="*{qq}">Age Error</td>
+                </tr>
+                <tr>
+                    <td>电子邮箱:</td>
+                    <td><input type="text" th:field="*{email}" /></td>
+                    <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Age Error</td>
+                </tr>
+                <tr>
+                    <td>电话:</td>
+                    <td><input type="text" th:field="*{tel}" /></td>
+                    <td th:if="${#fields.hasErrors('tel')}" th:errors="*{tel}">Age Error</td>
+                </tr>
+                <tr>
+                    <td><button type="submit">保存</button></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

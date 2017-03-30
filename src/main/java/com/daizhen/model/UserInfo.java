@@ -32,6 +32,7 @@ package com.daizhen.model;
  */
 public class UserInfo extends BaseEntity {
     private String username;
+    private Integer age;
     private String password;
     private String usertype;
     private Integer enabled;
@@ -94,4 +95,13 @@ public class UserInfo extends BaseEntity {
     public void setTel(String tel) {
         this.tel = tel;
     }
+
+	public Integer getAge() {
+		return age;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+    
 }
