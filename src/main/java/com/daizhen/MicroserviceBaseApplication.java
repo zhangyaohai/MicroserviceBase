@@ -8,6 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.client.RestTemplate;
@@ -20,6 +21,7 @@ import com.daizhen.storage.StorageService;
 @EnableScheduling
 @MapperScan(basePackages = "com.daizhen.mapper")
 @EnableConfigurationProperties(StorageProperties.class)
+@EnableDiscoveryClient
 public class MicroserviceBaseApplication {
 
 	private static final Logger log = LoggerFactory.getLogger(MicroserviceBaseApplication.class);
