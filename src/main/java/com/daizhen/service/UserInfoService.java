@@ -29,6 +29,7 @@ import org.springframework.stereotype.Service;
 
 import com.daizhen.mapper.UserInfoMapper;
 import com.daizhen.model.UserInfo;
+import com.github.pagehelper.PageHelper;
 
 import java.util.List;
 
@@ -43,9 +44,9 @@ public class UserInfoService {
     private UserInfoMapper userInfoMapper;
 
     public List<UserInfo> getAll(UserInfo UserInfo) {
-//        if (UserInfo.getPage() != null && UserInfo.getRows() != null) {
-//            PageHelper.startPage(UserInfo.getPage(), UserInfo.getRows());
-//        }
+        if (UserInfo.getPage() != null && UserInfo.getRows() != null) {
+            PageHelper.startPage(UserInfo.getPage(), UserInfo.getRows());
+        }
         return userInfoMapper.selectAll();
     }
 

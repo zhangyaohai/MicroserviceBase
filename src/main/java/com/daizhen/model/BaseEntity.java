@@ -24,9 +24,11 @@
 
 package com.daizhen.model;
 
-import java.beans.Transient;
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Transient;
 
 /**
  * 基础信息
@@ -40,8 +42,10 @@ public class BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Transient
     private Integer page = 1;
 
+    @Transient
     private Integer rows = 10;
 
     public Integer getId() {

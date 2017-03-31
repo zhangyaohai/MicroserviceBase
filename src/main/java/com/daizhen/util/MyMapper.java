@@ -24,8 +24,8 @@
 
 package com.daizhen.util;
 
-import com.daizhen.common.mapper.common.Mapper;
-import com.daizhen.common.mapper.common.MySqlMapper;
+import tk.mybatis.mapper.common.Mapper;
+import tk.mybatis.mapper.common.MySqlMapper;
 
 /**
  * 继承自己的MyMapper

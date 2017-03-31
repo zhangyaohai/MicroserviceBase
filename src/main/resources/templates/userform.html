@@ -1,50 +1,50 @@
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
     <body>
-        <form action="#" th:action="@{/formtest/dosave}" th:object="${userInfo}" method="post">
+        <form action="#" th:action="@{/webtest/save}" th:object="${userInfo}" method="post">
         	<input type="hidden" th:field="*{id}" />
             <table>
                 <tr>
-                    <td>�û���:</td>
+                    <td>用户名：</td>
                     <td><input type="text" th:field="*{username}" /></td>
-                    <td th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Name Error</td>
+                    <td th:if="${#fields.hasErrors('username')}" th:errors="*{username}">请填写好听的名字</td>
                 </tr>
                 <tr>
-                    <td>����:</td>
+                    <td>密码：</td>
                     <td><input type="text" th:field="*{password}" /></td>
-                    <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Age Error</td>
+                    <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">请输入正确的密码</td>
                 </tr>
                 <tr>
-                    <td>����:</td>
+                    <td>年龄：</td>
                     <td><input type="text" th:field="*{age}" /></td>
-                    <td th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</td>
+                    <td th:if="${#fields.hasErrors('age')}" th:errors="*{age}">请填写正确的年龄</td>
                 </tr>
                 <tr>
-                    <td>�û�����:</td>
+                    <td>用户类型</td>
                     <td><input type="text" th:field="*{usertype}" /></td>
-                    <td th:if="${#fields.hasErrors('usertype')}" th:errors="*{usertype}">Age Error</td>
+                    <td th:if="${#fields.hasErrors('usertype')}" th:errors="*{usertype}">请填写正确的用户类型</td>
                 </tr>
                 <tr>
-                    <td>�Ƿ���Ч:</td>
+                    <td>是否有效：</td>
                     <td><input type="text" th:field="*{enabled}" /></td>
-                    <td th:if="${#fields.hasErrors('enabled')}" th:errors="*{enabled}">Age Error</td>
+                    <td th:if="${#fields.hasErrors('enabled')}" th:errors="*{enabled}">请填写正确的有效信息</td>
                 </tr>
                 <tr>
                     <td>QQ:</td>
                     <td><input type="text" th:field="*{qq}" /></td>
-                    <td th:if="${#fields.hasErrors('qq')}" th:errors="*{qq}">Age Error</td>
+                    <td th:if="${#fields.hasErrors('qq')}" th:errors="*{qq}">请填写正确的QQ号码</td>
                 </tr>
                 <tr>
-                    <td>��������:</td>
+                    <td>电子邮件：</td>
                     <td><input type="text" th:field="*{email}" /></td>
-                    <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Age Error</td>
+                    <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">请填写正确的邮箱地址</td>
                 </tr>
                 <tr>
-                    <td>�绰:</td>
+                    <td>电话：</td>
                     <td><input type="text" th:field="*{tel}" /></td>
-                    <td th:if="${#fields.hasErrors('tel')}" th:errors="*{tel}">Age Error</td>
+                    <td th:if="${#fields.hasErrors('tel')}" th:errors="*{tel}">请填写正确的电话信息</td>
                 </tr>
                 <tr>
-                    <td><button type="submit">����</button></td>
+                    <td><button type="submit">保存</button></td>
                 </tr>
             </table>
         </form>
