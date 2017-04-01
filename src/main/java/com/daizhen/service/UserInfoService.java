@@ -53,6 +53,13 @@ public class UserInfoService {
     public UserInfo getById(Integer id) {
         return userInfoMapper.selectByPrimaryKey(id);
     }
+    
+    public UserInfo getByNameAndPassword(String username, String password) {
+    	UserInfo info  = new UserInfo();
+    	info.setUsername(username);
+    	info.setPassword(password);
+    	return userInfoMapper.selectOne(info);
+    }
 
     public void deleteById(Integer id) {
         userInfoMapper.deleteByPrimaryKey(id);
