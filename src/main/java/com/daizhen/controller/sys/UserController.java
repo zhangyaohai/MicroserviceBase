@@ -1,5 +1,7 @@
 package com.daizhen.controller.sys;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,5 +22,12 @@ public class UserController {
         UserInfo userInfo = userInfoService.getByNameAndPassword(username, password);
         return userInfo;
     }
+    
+    @RequestMapping(value = "/list")
+    public List<UserInfo> getAllUser() {
+    	return userInfoService.getAll(new UserInfo());
+    	
+    }
+    
 	
 }
