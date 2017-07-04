@@ -54,6 +54,13 @@ public class UserInfoService {
         return userInfoMapper.selectByPrimaryKey(id);
     }
     
+    public List<UserInfo> getByName(UserInfo UserInfo) {
+    	if (UserInfo.getPage() != null && UserInfo.getRows() != null) {
+            PageHelper.startPage(UserInfo.getPage(), UserInfo.getRows());
+        }
+    	return userInfoMapper.select(UserInfo);
+    }
+    
     public UserInfo getByNameAndPassword(String username, String password) {
     	UserInfo info  = new UserInfo();
     	info.setUsername(username);

@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.daizhen.model.UserInfo;
@@ -24,16 +26,37 @@ public class UserController {
         return userInfo;
     }
     
-    @RequestMapping(value = {"/listall", "/list/{username}"})
-    public List<UserInfo> getAllUser(@PathVariable String username) {
+    @RequestMapping(value = {"/list"})
+    public List<UserInfo> getAllUser(@RequestParam("username") String username) {
     	
     	UserInfo param = new UserInfo();
     	if(StringUtils.isNotEmpty(username)) {
-    		param.setUsername(username);
+    		param.setName(username);
     	}
-    	return userInfoService.getAll(param);
+    	param.setPage(null);
+    	return userInfoService.getByName(param);
     	
     }
     
+    @RequestMapping(value = {"/listpage"})
+    public List<UserInfo> getAllUser(@RequestParam("username") String username,@RequestParam("page") String page) {
+    	
+    	UserInfo param = new UserInfo();
+    	if(StringUtils.isNotEmpty(username)) {
+    		param.setName(username);
+    	}
+    	param.setPage(Integer.valueOf(page));
+    	return userInfoService.getByName(param);
+    	
+    }
+    
+    @RequestMapping(value = "/del/{id}")
+    public void deluser(@PathVariable String id) {
+    	userInfoService.deleteById(Integer.valueOf(id));
+    }
 	
+    @RequestMapping(value = "/save")
+    public void saveuser(@ModelAttribute("user") UserInfo user) {
+    	userInfoService.save(user);
+    }
 }

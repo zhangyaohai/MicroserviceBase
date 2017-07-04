@@ -24,6 +24,8 @@
 
 package com.daizhen.model;
 
+import java.util.Date;
+
 /**
  * 用户信息
  *
@@ -31,14 +33,19 @@ package com.daizhen.model;
  * @since 2016-01-31 21:39
  */
 public class UserInfo extends BaseEntity {
-    private String username;
+	private String username;
     private Integer age;
     private String password;
-    private String usertype;
+    private Integer usertype;
     private Integer enabled;
+    private Integer sex;
+    private Date birth;
+    private String name;
     private String qq;
     private String email;
     private String tel;
+    private String avatar;
+
 
     public String getUsername() {
         return username;
@@ -54,14 +61,6 @@ public class UserInfo extends BaseEntity {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getUsertype() {
-        return usertype;
-    }
-
-    public void setUsertype(String usertype) {
-        this.usertype = usertype;
     }
 
     public Integer getEnabled() {
@@ -102,6 +101,46 @@ public class UserInfo extends BaseEntity {
 
 	public void setAge(Integer age) {
 		this.age = age;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getAvatar() {
+		return avatar;
+	}
+
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
+	}
+
+	public Integer getUsertype() {
+		return usertype;
+	}
+
+	public void setUsertype(Integer usertype) {
+		this.usertype = usertype;
+	}
+
+	public Integer getSex() {
+		return sex;
+	}
+
+	public void setSex(Integer sex) {
+		this.sex = sex;
+	}
+
+	public Date getBirth() {
+		return birth;
+	}
+
+	public void setBirth(Date birth) {
+		this.birth = birth;
 	}
     
 }
