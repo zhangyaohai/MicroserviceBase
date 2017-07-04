@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.daizhen.model.UserInfo;
 import com.daizhen.service.UserInfoService;
 
@@ -56,7 +58,8 @@ public class UserController {
     }
 	
     @RequestMapping(value = "/save")
-    public void saveuser(@ModelAttribute("user") UserInfo user) {
+    public void saveuser(@RequestParam("data") String data) {
+    	UserInfo user = (UserInfo) JSON.parseObject(data, UserInfo.class);  
     	userInfoService.save(user);
     }
 }
