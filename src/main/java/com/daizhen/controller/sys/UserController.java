@@ -56,6 +56,15 @@ public class UserController {
     public void deluser(@PathVariable String id) {
     	userInfoService.deleteById(Integer.valueOf(id));
     }
+    
+    @RequestMapping(value = "/delBatch")
+    public void delmoreuser(@RequestParam("ids") String ids) {
+    	String[] id = ids.split(",");
+    	for(int i = 0;i<id.length;i++) {
+    		userInfoService.deleteById(Integer.valueOf(id[i]));
+    	}
+    	
+    }
 	
     @RequestMapping(value = "/save")
     public void saveuser(@RequestParam("data") String data) {
